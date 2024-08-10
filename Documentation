@@ -1,0 +1,15 @@
+Documentation on DDD and SOLID Principles
+Domain-Driven Design (DDD)
+
+    Domain: The core focus of the application is managing tasks, which defines the domain of the application. The domain is represented by models like Task and User.
+    Bounded Contexts: The application is divided into frontend and backend, each responsible for its bounded context. The backend handles domain logic, while the frontend manages user interactions.
+    Entities and Aggregates: Entities like Task and User represent core data with unique identities. Aggregates group related entities and ensure consistency. For example, a Task aggregate ensures that task-related operations maintain business rules and integrity.
+    Repositories: The backend uses repositories to handle data access for entities, encapsulating database operations.
+
+SOLID Principles
+
+    Single Responsibility Principle (SRP): Each component and service has a single responsibility. For instance, the TaskForm component handles only form logic, while task-related operations are managed by the taskSlice in Redux. In the backend, services and controllers are designed to have clear, single responsibilities.
+    Open/Closed Principle (OCP): Components and services are designed to be open for extension but closed for modification. For example, new features or modifications can be added by extending existing components or services without changing their core logic.
+    Liskov Substitution Principle (LSP): Components and services are designed to be interchangeable. For example, custom hooks or components can be substituted with others that adhere to the same interface or contract. In the backend, different implementations of repositories or services can be swapped as long as they adhere to the same interface.
+    Interface Segregation Principle (ISP): Interfaces are designed to be specific and tailored to the needs of consumers. For instance, Redux actions and reducers are focused on specific aspects of the application state. In the backend, interfaces are designed to provide only the methods needed by the consumers, avoiding large, monolithic interfaces.
+    Dependency Inversion Principle (DIP): High-level modules do not depend on low-level modules. Dependencies are abstracted through services or interfaces. For example, the frontend communicates with the backend through a well-defined API, not direct database operations. In the backend, high-level business logic depends on abstractions (interfaces) rather than concrete implementations.
